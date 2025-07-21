@@ -31,7 +31,10 @@ abstract class BaseClient {
 }
 
 class DioClient extends BaseClient {
-  DioClient() : _dio = Dio();
+  DioClient()
+      : _dio = Dio(BaseOptions(
+            connectTimeout: const Duration(seconds: 3),
+            receiveTimeout: const Duration(seconds: 5)));
 
   final Dio _dio;
 
